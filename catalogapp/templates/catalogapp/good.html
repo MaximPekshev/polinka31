@@ -1,0 +1,92 @@
+{% extends 'baseapp/index.html' %}
+
+{% load static %}
+
+{% block content %}
+<!--================End Main Header Area =================-->
+<section class="banner_area">
+	<div class="container">
+		<div class="banner_text">
+			<h3>{{ good.title }}</h3>
+			<ul>
+				<li><a href="{% url 'show_catalog' %}">Каталог</a></li>
+			</ul>
+		</div>
+	</div>
+</section>
+<!--================End Main Header Area =================-->
+
+<!--================Product Details Area =================-->
+<section class="product_details_area p_100">
+	<div class="container">
+		<div class="row product_d_price">
+			<div class="col-lg-6">
+				{% if good.get_main_picture %}
+				<div class="product_img"><img class="img-fluid" src="{{ good.get_main_picture.images.url }}" width="525" alt=""></div>
+				{% else %}
+				<div class="product_img"><img class="img-fluid" src="{% static 'img/cake.jpg' %}" alt="" width="525"></div>
+				{% endif %}
+			</div>
+			<div class="col-lg-6">
+				<div class="product_details_text">
+					<h4>{{ good.title }}</h4>
+					<p>{{ good.description|slice:":255" }}</p>
+					<h5>Цена: <span>{{ good.price }}</span></h5>
+					<div class="quantity_box">
+						<!-- <label for="quantity">Quantity :</label>
+						<input type="text" placeholder="1" id="quantity"> -->
+					</div>
+					<!-- <a class="pink_more" href="#">Add to Cart</a> -->
+				</div>
+			</div>
+		</div>
+		<div class="product_tab_area">
+			<nav>
+				<div class="nav nav-tabs" id="nav-tab" role="tablist">
+					<a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Описание</a>
+					<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Характеристики</a>
+				</div>
+			</nav>
+			<div class="tab-content" id="nav-tabContent">
+				<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+					<p>{{ good.description|linebreaksbr }}</p>
+				</div>
+				<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+					<p>{{ good.characteristics|linebreaksbr }}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--================End Product Details Area =================-->
+
+<!--================Similar Product Area =================-->
+<section class="similar_product_area p_100">
+	<div class="container">
+		<div class="main_title">
+			<h2>Похожие товары</h2>
+		</div>
+		<div class="row similar_product_inner">
+			{% for product in similar_products %}
+			<div class="col-lg-3 col-md-4 col-6">
+				<div class="cake_feature_item">
+					<div class="cake_img">
+						{% if product.get_main_picture %}
+						<img src="{{ product.get_main_picture.images.url }}" alt="" width="270">
+						{% else %}
+						<img src="{% static 'img/cake.jpg' %}" alt="" width="270">
+						{% endif %}
+					</div>
+					<div class="cake_text">
+						<h4>{{ product.price }}</h4>
+						<a href="{% url 'show_good' cpu_slug=product.cpu_slug %}"><h3>{{ product.title }}</h3></a>
+						<!-- <a class="pest_btn" href="#">Add to cart</a> -->
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>
+<!--================End Similar Product Area =================-->
+{% endblock %}
