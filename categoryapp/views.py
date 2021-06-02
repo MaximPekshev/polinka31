@@ -75,7 +75,7 @@ def show_category(request, cpu_slug):
 
 		if page.has_next():
 			if params:
-				next_url = '{1}page={0}'.format(page.previous_page_number(), str_active_params)
+				next_url = '{1}page={0}'.format(page.next_page_number(), str_active_params)
 			else:				
 				next_url = '?page={}'.format(page.next_page_number())
 		else:

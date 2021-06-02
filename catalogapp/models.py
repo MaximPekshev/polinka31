@@ -28,7 +28,7 @@ class Good(models.Model):
 	price 			= models.DecimalField(verbose_name='Цена', max_digits=15, decimal_places=0, blank=True, null=True)
 	is_active		= models.BooleanField(verbose_name='Активен', default=False)
 	quantity		= models.DecimalField(verbose_name='Остаток', max_digits=15, decimal_places=0, blank=True, null=True)
-	weight			= models.DecimalField(verbose_name='Вес', max_digits=15, decimal_places=2, blank=True, null=True, default='')
+	weight			= models.DecimalField(verbose_name='Вес', max_digits=15, decimal_places=2, blank=True, null=True)
 	cpu_slug		= models.SlugField(max_length=70, verbose_name='ЧПУ_Url', blank=True, db_index=True)
 	good_uid 		= models.CharField(max_length=36, verbose_name='Код 1C', blank=True, null=True)
 	category 		= models.ForeignKey('Category', verbose_name='Категория', on_delete=models.SET_DEFAULT,null=True, blank=True, default=None)
