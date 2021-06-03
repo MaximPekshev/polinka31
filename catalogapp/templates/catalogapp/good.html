@@ -30,7 +30,10 @@
 			<div class="col-lg-6">
 				<div class="product_details_text">
 					<h4>{{ good.title }}</h4>
-					<p>{{ good.description|slice:":255" }}</p>
+					<p>Артикул: {% if good.art %}{{ good.art }}{% else %}---{% endif %}</p>
+					{% if good.description %}
+					<p>{{ good.description|slice:":255" }}...</p>
+					{% endif %}
 					<h5>Цена: <span>{{ good.price }}</span></h5>
 					<div class="quantity_box">
 						<!-- <label for="quantity">Quantity :</label>

@@ -47,17 +47,23 @@ def show_catalog(request):
 			
 			goods = Good.objects.filter(is_active=True)			
 
-		goods_count=9
+		goods_count=18
 
 		page_number = request.GET.get('page', 1)
 
 		paginator = Paginator(goods, goods_count)	
 
 		page = paginator.get_page(page_number)
+
 		if params:
 			last_url = '{1}page={0}'.format(paginator.num_pages, str_active_params)
 		else:
 			last_url = '?page={}'.format(paginator.num_pages)
+
+		if params:
+			first_url = '{1}page={0}'.format(1, str_active_params)
+		else:				
+			first_url = '?page={}'.format(1)	
 
 		is_paginated = page.has_other_pages()
 
@@ -87,11 +93,21 @@ def show_catalog(request):
 			'prev_url': prev_url,
 			'next_url': next_url,
 			'is_paginated': is_paginated,
-			'last_page' : paginator.num_pages,
-			'last_url' : last_url,
 			'categories': categories,
 			'top_rated': top_rated,
 		})
+
+		if (paginator.num_pages - page.number) > 2 :
+			context.update({
+				'last_page' : paginator.num_pages,
+				'last_url' : last_url
+				})
+
+		if (page.number - 1) > 2 :
+			context.update({
+				'first_page' : 1,
+				'first_url' : first_url
+				})
 
 		return  render(request, 'catalogapp/catalog.html', context)
 
