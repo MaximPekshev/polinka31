@@ -55,15 +55,11 @@
 					{% for good in page_object.object_list %}
 					<div class="col-lg-4 col-md-4 col-6">
 						<div class="cake_feature_item">
-							<div class="cake_img">
-								
-								{% if good.get_main_picture %}
-								<img src="{{ good.get_main_picture.images.url }}" alt="" width="270">
-								{% else %}
-								<img src="{% static 'img/cake.jpg' %}" alt="" width="270">
-								{% endif %}
-								
-							</div>
+							<a href="{% url 'show_good' cpu_slug=good.cpu_slug %}">
+								<div class="cake_img">
+									<img src="{% if good.get_main_picture %} {{ good.get_main_picture.images.url }} {% else %} {% static 'img/cake.jpg' %} {% endif %}" alt="" width="270">
+								</div>
+							</a>
 							<div class="cake_text">
 								<h4>{{ good.price }}</h4>
 								<a href="{% url 'show_good' cpu_slug=good.cpu_slug %}"><h3>{{ good.title }}</h3></a>
@@ -145,13 +141,15 @@
 						</div>
 						{% for good in top_rated %}
 						<div class="media">
-							<div class="d-flex">
-								{% if good.get_main_picture %}
-								<img src="{{ good.get_main_picture.images.url }}" alt="" width="104">
-								{% else %}
-								<img src="{% static 'img/cake.jpg' %}" alt="" width="104">
-								{% endif %}
-							</div>
+							<a href="{% url 'show_good' cpu_slug=good.cpu_slug %}">
+								<div class="d-flex">
+									{% if good.get_main_picture %}
+									<img src="{{ good.get_main_picture.images.url }}" alt="" width="104">
+									{% else %}
+									<img src="{% static 'img/cake.jpg' %}" alt="" width="104">
+									{% endif %}
+								</div>
+							</a>
 							<div class="media-body">
 								<a href="{% url 'show_good' cpu_slug=good.cpu_slug %}"><h4>{{ good.title }}</h4></a>
 								<h5>{{ good.price }}</h5>
