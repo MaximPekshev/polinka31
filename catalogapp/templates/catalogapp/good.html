@@ -94,7 +94,7 @@
 		</div>
 		<div class="row similar_product_inner">
 			{% for product in similar_products %}
-			<div class="col-lg-3 col-md-4 col-6">
+			<div class="col-lg-3 col-md-4 col-12">
 				<div class="cake_feature_item">
 					<a href="{% url 'show_good' cpu_slug=product.cpu_slug %}">
 						<div class="cake_img">
@@ -104,7 +104,6 @@
 					<div class="cake_text">
 						<h4>{{ product.price }}</h4>
 						<a href="{% url 'show_good' cpu_slug=product.cpu_slug %}"><h3>{{ product.title }}</h3></a>
-						<!-- <a class="pest_btn" href="#">Add to cart</a> -->
 					</div>
 				</div>
 			</div>
