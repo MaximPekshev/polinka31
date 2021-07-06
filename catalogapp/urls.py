@@ -4,6 +4,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf import settings
 from .views import show_catalog
 from .views import show_good
+from django.urls import include
 
 urlpatterns = [
 	path('', 	show_catalog, name='show_catalog'),

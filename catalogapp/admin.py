@@ -16,7 +16,7 @@ class PictureInline(admin.TabularInline):
 class GoodAdmin(admin.ModelAdmin):
 	list_display = (
 					'title',
-					'art',
+					'good_uid',
 					'price',
 					'quantity',
 					'weight',

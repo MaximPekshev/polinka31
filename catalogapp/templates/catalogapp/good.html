@@ -7,9 +7,20 @@
 <section class="banner_area">
 	<div class="container">
 		<div class="banner_text">
-			<h3 style="color: #797979;">{{ good.title }}</h3>
+			<h3 style="opacity: 0;">{{ good.title }}</h3>
 			<ul>
-				<li><a href="{% url 'show_catalog' %}" style="color: #797979;">Каталог</a></li>
+				<li><a href="{% url 'show_catalog' %}" style="opacity: 0;">Каталог</a></li>
+			</ul>
+		</div>
+	</div>
+</section>
+<section class="product_details_area">
+	<div class="container">
+		<div class="breadcrumb_text">
+			<ul>
+				<li><a href="{% url 'show_catalog' %}">Каталог</a></li>
+				<li><a href="{% url 'show_category' cpu_slug=good.category.cpu_slug %}">{{ good.category }}</a></li>
+				<li><a href="{% url 'show_good' cpu_slug=good.cpu_slug %}">{{ good }}</a></li>
 			</ul>
 		</div>
 	</div>
@@ -17,7 +28,7 @@
 <!--================End Main Header Area =================-->
 
 <!--================Product Details Area =================-->
-<section class="product_details_area p_100">
+<section class="product_details_area p_50">
 	<div class="container">
 		<div class="row product_d_price">
 			<div class="col-lg-6">

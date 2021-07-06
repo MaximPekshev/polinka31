@@ -47,7 +47,7 @@ class Good(models.Model):
 
 	def get_pictures(self):
 		
-		return Picture.objects.filter(good=self).exclude(main_image=True)
+		return Picture.objects.filter(good=self).exclude(main_image=True)	
 
 	def get_main_picture(self):
 

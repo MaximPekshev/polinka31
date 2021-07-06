@@ -8,9 +8,9 @@
 	<div class="container">
 		<div class="banner_text">
 			{% if category %}
-			<h3 style="color: #797979;">{{ category.title }}</h3>
+			<h3 style="color: #797979; opacity: 0;">{{ category.title }}</h3>
 			<ul>
-				<li><a href="{% url 'show_catalog' %}" style="color: #797979;">Каталог</a></li>
+				<li><a href="{% url 'show_catalog' %}" style="color: #797979; opacity: 0;">Каталог</a></li>
 			</ul>
 			{% else %}
 			<h3 style="color: #797979;">Каталог</h3>
@@ -18,10 +18,24 @@
 		</div>
 	</div>
 </section>
+<section class="product_area">
+	<div class="container">
+		<div class="breadcrumb_text">
+			{% if category %}
+			<ul>
+				<li><a href="{% url 'show_catalog' %}">Каталог</a></li>
+				<li><a href="{% url 'show_category' cpu_slug=category.cpu_slug %}">{{ category }}</a></li>
+			</ul>
+			{% else %}
+			<h3>Каталог</h3>
+			{% endif %}
+		</div>
+	</div>
+</section>
 <!--================End Main Header Area =================-->
 
 <!--================Product Area =================-->
-<section class="product_area p_100">
+<section class="product_area p_50">
 	<div class="container">
 		<div class="row product_inner_row">
 			<div class="col-lg-9">
