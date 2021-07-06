@@ -16,7 +16,7 @@ def show_catalog(request):
 
 			str_active_params = '?'
 
-			data = request.GET.get('data')
+			data = request.GET.get('data').strip()
 
 			context.update({'search_data': data})
 

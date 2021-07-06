@@ -64,7 +64,7 @@
 			<div class="col-lg-6">
 				<div class="product_details_text">
 					<h4>{{ good.title }}</h4>
-					<p>Артикул: {% if good.art %}{{ good.art }}{% else %}---{% endif %}</p>
+					<p>Артикул: {% if good.good_uid %}{{ good.good_uid }}{% else %}---{% endif %}</p>
 					{% if good.description %}
 					<p>{{ good.description|slice:":255" }}...</p>
 					{% endif %}
