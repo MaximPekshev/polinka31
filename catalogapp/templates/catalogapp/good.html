@@ -68,7 +68,7 @@
 					{% if good.description %}
 					<p>{{ good.description|slice:":255" }}...</p>
 					{% endif %}
-					<h5>Цена: <span>{{ good.price }}</span></h5>
+					<h5>Цена: <span>Уточняйте у менеджеров</span></h5>
 					<div class="quantity_box">
 						<!-- <label for="quantity">Quantity :</label>
 						<input type="text" placeholder="1" id="quantity"> -->
@@ -113,7 +113,7 @@
 						</div>
 					</a>
 					<div class="cake_text">
-						<h4>{{ product.price }}</h4>
+						<h4></h4>
 						<a href="{% url 'show_good' cpu_slug=product.cpu_slug %}"><h3>{{ product.title }}</h3></a>
 					</div>
 				</div>

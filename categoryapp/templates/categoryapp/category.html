@@ -52,8 +52,8 @@
 							<h4>Сортировать:</h4>
 								<select name="sorting" class="short" onChange="Click();" >
 									<option data-display="{% if sorting %}{{ sorting }} {% else %}По умолчанию{% endif %}"></option>
-									<option value="cheap">Сначала дешевые</option>
-									<option value="expensive">Сначала дорогие</option>
+									<!-- <option value="cheap">Сначала дешевые</option>
+									<option value="expensive">Сначала дорогие</option> -->
 									<option value="new">Новинки</option>
 								</select>
 							</form>
@@ -75,7 +75,7 @@
 								</div>
 							</a>
 							<div class="cake_text">
-								<h4>{{ good.price }}</h4>
+								<h4></h4>
 								<a href="{% url 'show_good' cpu_slug=good.cpu_slug %}"><h3>{{ good.title }}</h3></a>
 								<!-- <a class="pest_btn" href="#">в корзину</a> -->
 							</div>
@@ -166,7 +166,7 @@
 							</a>
 							<div class="media-body">
 								<a href="{% url 'show_good' cpu_slug=good.cpu_slug %}"><h4>{{ good.title }}</h4></a>
-								<h5>{{ good.price }}</h5>
+								<h5></h5>
 							</div>
 						</div>
 						{% endfor %}

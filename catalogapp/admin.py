@@ -19,7 +19,6 @@ class GoodAdmin(admin.ModelAdmin):
 	list_display = (
 					'title',
 					'good_uid',
-					'price',
 					'quantity',
 					'weight',
 					'is_active',
@@ -35,7 +34,7 @@ class GoodAdmin(admin.ModelAdmin):
 
 	actions = ["export_as_csv"]
 
-	exclude = ('cpu_slug',)
+	exclude = ('cpu_slug', 'price',)
 
 	def formfield_for_foreignkey(self, db_field, request, **kwargs):
 
