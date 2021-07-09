@@ -5,18 +5,20 @@
 {% block content %}
 <!--================End Main Header Area =================-->
 <section class="banner_area">
-	<div class="container">
-		<div class="banner_text">
-			{% if category %}
-			<h3 style="color: #797979; opacity: 0;">{{ category.title }}</h3>
-			<ul>
-				<li><a href="{% url 'show_catalog' %}" style="color: #797979; opacity: 0;">Каталог</a></li>
-			</ul>
-			{% else %}
-			<h3 style="color: #797979;">Каталог</h3>
-			{% endif %}
+	<a href="{% url 'show_catalog' %}">
+		<div class="container">
+			<div class="banner_text">
+				{% if category %}
+				<h3 style="color: #797979; opacity: 0;">{{ category.title }}</h3>
+				<ul>
+					<li><a href="{% url 'show_catalog' %}" style="color: #797979; opacity: 0;">Каталог</a></li>
+				</ul>
+				{% else %}
+				<h3 style="color: #797979;">Каталог</h3>
+				{% endif %}
+			</div>
 		</div>
-	</div>
+	</a>
 </section>
 <section class="product_area">
 	<div class="container">

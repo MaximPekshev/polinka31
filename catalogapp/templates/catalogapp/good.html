@@ -5,14 +5,16 @@
 {% block content %}
 <!--================End Main Header Area =================-->
 <section class="banner_area">
-	<div class="container">
-		<div class="banner_text">
-			<h3 style="opacity: 0;">{{ good.title }}</h3>
-			<ul>
-				<li><a href="{% url 'show_catalog' %}" style="opacity: 0;">Каталог</a></li>
-			</ul>
+	<a href="{% url 'show_catalog' %}">
+		<div class="container">
+			<div class="banner_text">
+				<h3 style="opacity: 0;">{{ good.title }}</h3>
+				<ul>
+					<li><a href="{% url 'show_catalog' %}" style="opacity: 0;">Каталог</a></li>
+				</ul>
+			</div>
 		</div>
-	</div>
+	</a>
 </section>
 <section class="product_details_area">
 	<div class="container">
