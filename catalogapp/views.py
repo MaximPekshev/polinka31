@@ -16,16 +16,18 @@ def show_catalog(request):
 
 			str_active_params = '?'
 
-			data = request.GET.get('data').strip()
+			if request.GET.get('data'):
+				
+				data = request.GET.get('data').strip()
 
-			context.update({'search_data': data})
+				context.update({'search_data': data})
 
-			if data:
-				goods = Good.objects.filter(is_active=True, title__contains=data.upper())
-				str_active_params += 'data=' + data +'&'
+				if data:
+					goods = Good.objects.filter(is_active=True, title__contains=data.upper())
+					str_active_params += 'data=' + data +'&'
 
-			else:
-				goods = Good.objects.filter(is_active=True)
+				else:
+					goods = Good.objects.filter(is_active=True)
 
 			sorting = request.GET.get('sorting')
 
